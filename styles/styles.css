@@ -862,7 +862,169 @@ header {
 }
 
 /* ============================
-   15. FOOTER STYLES
+   15. GIFT CERTIFICATES PAGE
+============================ */
+.gift-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+    url("../images/gift-certificate-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 5em 0;
+  text-align: center;
+}
+
+.gift-hero h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+
+.gift-hero p {
+  font-size: 1.2em;
+  max-width: 50em;
+  margin: 0 auto 2em;
+}
+
+.gift-options {
+  padding: 4em 0;
+  background-color: #f9f9f9;
+}
+
+/* Estilos para cards de gift certificates */
+.gift-cards {
+  width: 100%;
+  display: table;
+  border-spacing: 2em 2em;
+  margin-bottom: 2em;
+}
+
+.gift-cards-row {
+  display: table-row;
+}
+
+.gift-card {
+  display: table-cell;
+  width: 33.333%;
+  background-color: white;
+  border-radius: 0.5em;
+  overflow: hidden;
+  box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  vertical-align: top;
+}
+
+.gift-card:hover {
+  transform: translateY(-0.6em);
+  box-shadow: 0 1em 2em rgba(0, 0, 0, 0.15);
+}
+
+.gift-card-image {
+  height: 12.5em;
+  background-size: cover;
+  background-position: center;
+}
+
+.gift-card-content {
+  padding: 2em;
+  min-height: 18em; /* Garantir altura consistente */
+  position: relative;
+}
+
+.gift-card h3 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  color: var(--primary-color);
+}
+
+.gift-card p {
+  margin-bottom: 4em; /* Espaço para o botão */
+  line-height: 1.6;
+}
+
+.gift-card .price {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: var(--accent-color);
+  margin-bottom: 1em;
+}
+
+.gift-card .btn {
+  position: absolute;
+  bottom: 2em;
+  left: 2em;
+  right: 2em;
+  text-align: center;
+}
+
+/* Ajustes para diferentes tamanhos de tela */
+@media (min-width: 70em) { /* Desktop grande */
+  .first-row .gift-card {
+    width: 33.333%; /* 3 cards por linha */
+  }
+  
+  .second-row .gift-card {
+    width: 33.333%; /* Poderia ser apenas 1 card centralizado */
+  }
+}
+
+@media (min-width: 48em) and (max-width: 70em) { /* Tablets e Desktop médio */
+  .gift-cards {
+    display: block;
+    text-align: center;
+  }
+  
+  .gift-cards-row {
+    display: block;
+    margin-bottom: 2em;
+  }
+  
+  .gift-card {
+    display: inline-block;
+    width: 45%;
+    margin: 0 1% 2em;
+    vertical-align: top;
+  }
+}
+
+.how-it-works {
+  padding: 4em 0;
+}
+
+.steps {
+  margin-top: 3em;
+  text-align: center;
+}
+
+.step {
+  display: inline-block;
+  vertical-align: top;
+  width: 23%;
+  margin: 0 1%;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.step-number {
+  display: inline-block;
+  width: 3.75em;
+  height: 3.75em;
+  line-height: 3.75em;
+  background-color: var(--accent-color);
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  border-radius: 50%;
+  margin: 0 auto 1em;
+  text-align: center;
+}
+
+.step h3 {
+  margin-bottom: 1em;
+  color: var(--primary-color);
+}
+
+/* ============================
+   16. FOOTER STYLES
 ============================ */
 footer {
   background-color: var(--footer-bg);
@@ -930,268 +1092,6 @@ footer {
   padding-top: 2em;
   border-top: 0.05em solid rgba(255, 255, 255, 0.1);
   font-size: 0.8rem;
-}
-
-/* ============================
-   16. MEDIA QUERIES
-============================ */
-@media (max-width: 62rem) {
-  .gift-card {
-    width: 47%;
-    margin: 0 1.5% 2em;
-  }
-
-  .step {
-    width: 50%;
-  }
-}
-
-@media (max-width: 48rem) {
-  .mobile-toggle {
-    display: block;
-    float: right;
-  }
-
-  .fullscreen-hero h1 {
-    font-size: 3.5rem;
-  }
-
-  .nav-menu {
-    position: fixed;
-    top: 4em;
-    right: -100%;
-    width: 80%;
-    height: 100vh;
-    background-color: white;
-    padding: 2em;
-    box-shadow: -0.2em 0 1em rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    text-align: left;
-  }
-
-  .nav-menu.active {
-    right: 0;
-  }
-
-  .nav-menu li {
-    display: block;
-    margin: 1em 0;
-  }
-
-  .dropdown {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    box-shadow: none;
-    margin-left: 1em;
-    display: none;
-  }
-
-  .has-dropdown:hover .dropdown {
-    display: block;
-  }
-
-  /* Home page responsive */
-  .hero h2 {
-    font-size: 2rem;
-  }
-
-  .rooms-grid {
-    display: block;
-  }
-
-  .room-card {
-    display: block;
-    width: 100%;
-    margin-bottom: 2em;
-  }
-
-  /* Room page responsive */
-  .room-hero h1 {
-    font-size: 2.5rem;
-  }
-
-  .room-info-banner {
-    display: block;
-    padding: 1em;
-  }
-
-  .info-block {
-    display: block;
-    width: 100%;
-    border-right: none;
-    border-bottom: 0.05em solid #eee;
-    padding: 1em;
-  }
-
-  .info-block:last-child {
-    border-bottom: none;
-  }
-
-  .room-content {
-    display: block;
-  }
-
-  .room-text,
-  .room-sidebar {
-    display: block;
-    width: 100%;
-    padding: 0;
-    margin-bottom: 2em;
-  }
-
-  .gallery-grid {
-    display: block;
-  }
-
-  .gallery-item {
-    display: block;
-    width: 100%;
-    margin-bottom: 1em;
-  }
-
-  .testimonials-grid {
-    display: block;
-  }
-
-  .testimonial-card {
-    display: block;
-    width: 100%;
-    margin-bottom: 1em;
-  }
-
-  .sitemap-column {
-    display: block;
-    width: 100%;
-    margin-bottom: 2em;
-  }
-
-  /* Footer responsive */
-  .footer-content {
-    display: block;
-  }
-
-  .footer-column {
-    display: block;
-    width: 100%;
-    margin-bottom: 2em;
-  }
-
-  .about-text,
-  .about-sidebar {
-    display: block;
-    width: 100%;
-    padding-right: 0;
-  }
-
-  .about-sidebar {
-    margin-top: 2em;
-  }
-
-  .contact-form-container,
-  .contact-info-container {
-    display: block;
-    width: 100%;
-    padding-right: 0;
-  }
-
-  .contact-info-container {
-    margin-top: 2em;
-  }
-
-  .gift-card {
-    width: 100%;
-    margin: 0 0 2em;
-    min-height: auto;
-  }
-
-  .gift-card-content {
-    min-height: auto;
-    padding-bottom: 7em; /* Espaço para o botão no fundo */
-  }
-
-  .step {
-    width: 100%;
-  }
-}
-
-@media (max-width: 30rem) {
-  .fullscreen-hero h1 {
-    font-size: 2.5rem;
-  }
-  .hero-content {
-    text-align: center;
-    padding-left: 1em;
-    padding-right: 1em;
-  }
-}
-
-/* Adicionar ao styles.css */
-
-/* Para títulos de rodapé */
-.footer-heading {
-  color: var(--accent-color);
-}
-
-/* Para links de rodapé */
-.footer-link {
-  color: var(--accent-color);
-}
-
-/* Para botões de largura total */
-.btn-full-width {
-  width: 100%;
-  text-align: center;
-  margin-top: 1em;
-}
-
-/* Para o texto de rodapé */
-.footer-text {
-  text-align: center;
-  color: #aaa;
-  font-size: 0.9rem;
-}
-/* Estilos para a página Find Us */
-.map-container {
-  display: block;
-  width: 100%;
-  background-color: #f5f5f5;
-  padding: 2em 0;
-}
-
-.map-row {
-  display: block;
-  width: 100%;
-  overflow: hidden;
-}
-
-.map-info {
-  float: left;
-  width: 33%;
-  padding: 2em;
-  background-color: white;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  margin: 1em;
-}
-
-.map-embed {
-  float: left;
-  width: 67%;
-  height: 500px;
-  margin: 1em;
-}
-
-/* Continuar com os outros estilos... */
-/* Estilos para a página Experiences */
-.experiences-hero {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
-    url("/images/experiences-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 5em 0;
-  text-align: center;
 }
 
 /* ============================
@@ -1356,27 +1256,6 @@ footer {
   background-color: #f9f9f9;
 }
 
-@media (max-width: 48rem) {
-  .experiences-hero h1 {
-    font-size: 2.5em;
-  }
-
-  .experience-cards-table,
-  .experience-cards-row,
-  .experience-card,
-  .features-table,
-  .features-row,
-  .feature-card {
-    display: block;
-    width: 100%;
-  }
-
-  .experience-card,
-  .feature-card {
-    margin-bottom: 2em;
-  }
-}
-
 /* ============================
    FIND US PAGE SPECIFIC STYLES
 ============================ */
@@ -1521,203 +1400,283 @@ footer {
   left: -1em;
 }
 
-/* Media queries for Find Us page */
-@media (max-width: 48rem) {
-  .map-container,
-  .map-row,
-  .map-info,
-  .map-embed,
-  .directions-table,
-  .directions-row,
-  .direction-card {
+/* ============================
+   17. MEDIA QUERIES
+============================ */
+@media (max-width: 62rem) {
+  .gift-card {
+    width: 47%;
+    margin: 0 1.5% 2em;
+  }
+
+  .step {
+    width: 50%;
+  }
+}
+
+@media (max-width: 48em) {
+  .mobile-toggle {
+    display: block;
+    float: right;
+  }
+
+  .fullscreen-hero h1 {
+    font-size: 3.5rem;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 4em;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background-color: white;
+    padding: 2em;
+    box-shadow: -0.2em 0 1em rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: left;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-menu li {
+    display: block;
+    margin: 1em 0;
+  }
+
+  .dropdown {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    margin-left: 1em;
+    display: none;
+  }
+
+  .has-dropdown:hover .dropdown {
+    display: block;
+  }
+
+  /* Home page responsive */
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .rooms-grid {
+    display: block;
+  }
+
+  .room-card {
     display: block;
     width: 100%;
-  }
-
-  .map-embed {
-    height: 21.875em;
-    margin-top: 2em;
-  }
-
-  .direction-card {
     margin-bottom: 2em;
   }
-}
 
-/* Additional styles for the gift certificates page */
-.gift-hero {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
-    url("../../images/gift-certificate-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 5em 0;
-  text-align: center;
-}
-
-.gift-hero h1 {
-  font-size: 3em;
-  margin-bottom: 0.5em;
-}
-
-.gift-hero p {
-  font-size: 1.2em;
-  max-width: 800px;
-  margin: 0 auto 2em;
-}
-
-.gift-options {
-  padding: 4em 0;
-  background-color: #f9f9f9;
-}
-
-.gift-cards {
-  zoom: 1;
-}
-.gift-cards::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.gift-card {
-  float: left;
-  width: 48%;
-  margin: 1%;
-  box-sizing: border-box;
-}
-
-@media (max-width: 768px) {
-  .gift-card {
-    float: none;
-    width: 100%;
-    margin: 0 0 1rem;
+  /* Room page responsive */
+  .room-hero h1 {
+    font-size: 2.5rem;
   }
-}
 
-.gift-card {
-  background-color: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+  .room-info-banner {
+    display: block;
+    padding: 1em;
+  }
 
-.gift-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-}
-
-.gift-card-image {
-  height: 200px;
-  background-size: cover;
-  background-position: center;
-}
-
-.gift-card-content {
-  padding: 2em;
-}
-
-.gift-card h3 {
-  font-size: 1.5em;
-  margin-bottom: 0.5em;
-  color: var(--primary-color);
-}
-
-.gift-card p {
-  margin-bottom: 1.5em;
-  line-height: 1.6;
-}
-
-.gift-card .price {
-  font-size: 1.3em;
-  font-weight: bold;
-  color: var(--accent-color);
-  margin-bottom: 1em;
-}
-
-.how-it-works {
-  padding: 4em 0;
-}
-
-.steps {
-  font-size: 0;
-  text-align: justify;
-}
-.steps::after {
-  content: "";
-  display: inline-block;
-  width: 100%;
-}
-.step {
-  display: inline-block;
-  vertical-align: top;
-  width: 32%;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  box-sizing: border-box;
-}
-
-@media (max-width: 768px) {
-  .step {
+  .info-block {
     display: block;
     width: 100%;
+    border-right: none;
+    border-bottom: 0.05em solid #eee;
+    padding: 1em;
   }
+
+  .info-block:last-child {
+    border-bottom: none;
+  }
+
+  .room-content {
+    display: block;
+  }
+
+  .room-text,
+  .room-sidebar {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 2em;
+  }
+
+  .gallery-grid {
+    display: block;
+  }
+
+  .gallery-item {
+    display: block;
+    width: 100%;
+    margin-bottom: 1em;
+  }
+
+  .testimonials-grid {
+    display: block;
+  }
+
+  .testimonial-card {
+    display: block;
+    width: 100%;
+    margin-bottom: 1em;
+  }
+
+  .sitemap-column {
+    display: block;
+    width: 100%;
+    margin-bottom: 2em;
+  }
+
+ /* Gift certificates page responsive */
+.gift-hero h1 {
+  font-size: 2.5em;
 }
 
-.step-number {
-  display: table;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
+.gift-cards, 
+.gift-cards-row, 
+.gift-card {
+  display: block;
+  width: 100%;
+}
+  
+.gift-card {
+  margin-bottom: 2em;
+}
+  
+.gift-card-content {
+  min-height: auto;
+  padding-bottom: 5em;
+}
+
+.step {
+  display: block;
+  width: 100%;
+  margin: 0 0 2em;
+}
+/* Footer responsive */
+.footer-content {
+  display: block;
+}
+
+.footer-column {
+  display: block;
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+.about-text,
+.about-sidebar {
+  display: block;
+  width: 100%;
+  padding-right: 0;
+}
+
+.about-sidebar {
+  margin-top: 2em;
+}
+
+.contact-form-container,
+.contact-info-container {
+  display: block;
+  width: 100%;
+  padding-right: 0;
+}
+
+.contact-info-container {
+  margin-top: 2em;
+}
+
+/* Experiences page responsive */
+.experiences-hero h1 {
+  font-size: 2.5em;
+}
+
+.experience-cards-table,
+.experience-cards-row,
+.experience-card,
+.features-table,
+.features-row,
+.feature-card {
+  display: block;
+  width: 100%;
+}
+
+.experience-card,
+.feature-card {
+  margin-bottom: 2em;
+}
+
+/* Find us page responsive */
+.map-container,
+.map-row,
+.map-info,
+.map-embed,
+.directions-table,
+.directions-row,
+.direction-card {
+  display: block;
+  width: 100%;
+}
+
+.map-embed {
+  height: 21.875em;
+  margin-top: 2em;
+}
+
+.direction-card {
+  margin-bottom: 2em;
+}
+
+/* Gift certificates page responsive */
+.step {
+  display: block;
+  width: 100%;
+  margin: 0 0 2em;
+}
+}
+
+@media (max-width: 30rem) {
+.fullscreen-hero h1 {
+  font-size: 2.5rem;
+}
+.hero-content {
   text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
 }
-.step-number span {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.step h3 {
-  margin-bottom: 1em;
-  color: var(--primary-color);
 }
 
-.faq-section {
-  background-color: #f9f9f9;
-  padding: 4em 0;
+/* ============================
+ ADDITIONAL UTILITY CLASSES
+============================ */
+/* Para títulos de rodapé */
+.footer-heading {
+color: var(--accent-color);
 }
 
-.faq-item {
-  background-color: white;
-  margin-bottom: 1em;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* Para links de rodapé */
+.footer-link {
+color: var(--accent-color);
 }
 
-.faq-question {
-  padding: 1.5em;
-  font-weight: bold;
-  cursor: pointer;
-  position: relative;
-  color: var(--primary-color);
+/* Para botões de largura total */
+.btn-full-width {
+width: 100%;
+text-align: center;
+margin-top: 1em;
 }
 
-.faq-question::after {
-  content: "+";
-  position: absolute;
-  right: 1.5em;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.5em;
-}
-
-.faq-answer {
-  padding: 0 1.5em 1.5em;
-  line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-  .gift-hero h1 {
-    font-size: 2.5em;
-  }
+/* Para o texto de rodapé */
+.footer-text {
+text-align: center;
+color: #aaa;
+font-size: 0.9rem;
 }
