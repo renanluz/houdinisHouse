@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Your Escape | Houdini's House</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <meta
+      name="description"
+      content="Book your escape room adventure at Houdini's House. Select your room, date, and time to experience our immersive challenges."
+    />
+    <style>
+      /* Additional styles for the booking page */
+      .booking-confirmation {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .confirmation-content {
+        background-color: white;
+        padding: 2em;
+        border-radius: 8px;
+        max-width: 500px;
+        text-align: center;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .confirmation-content h2 {
+        color: var(--primary-color);
+        margin-bottom: 1em;
+      }
+
+      .confirmation-content p {
+        margin-bottom: 1.5em;
+        line-height: 1.6;
+      }
+
+      .confirmation-content .icon {
+        font-size: 4em;
+        color: var(--accent-color);
+        margin-bottom: 0.5em;
+      }
+
+      .close-confirmation {
+        display: inline-block;
+        padding: 0.7em 1.5em;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .close-confirmation:hover {
+        background-color: var(--secondary-color);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header with Navigation -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <a href="../index.html"><h1>Houdini's House</h1></a>
+          </div>
+          <div class="mobile-toggle" aria-label="Toggle mobile menu">☰</div>
+          <nav class="nav-menu" aria-label="Main navigation">
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="rooms/cure.html">The Cure</a></li>
+              <li><a href="rooms/magician.html">Missing Magician</a></li>
+              <li><a href="rooms/hacker.html">Hacker</a></li>
+              <li class="has-dropdown">
+                <a href="#">Additional Rooms</a>
+                <ul class="dropdown">
+                  <li><a href="rooms/basement.html">The Basement</a></li>
+                  <li><a href="rooms/study.html">The Study</a></li>
+                  <li><a href="rooms/fenns-gold.html">Fenn's Gold</a></li>
+                  <li>
+                    <a href="rooms/reverse-curse.html">Reverse the Curse</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="has-dropdown">
+                <a href="#">Information</a>
+                <ul class="dropdown">
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="find-us.html">Find Us</a></li>
+                  <li>
+                    <a href="gift-certificates.html">Gift Certificates</a>
+                  </li>
+                  <li><a href="experiences.html">Experiences</a></li>
+                  <li><a href="merchandise.html">Merchandise</a></li>
+                </ul>
+              </li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Booking Content Section -->
+    <section class="room-description" style="padding-top: 3em">
+      <div class="container" id="main-content">
+        <div class="room-content">
+          <div class="room-text" style="width: 100%">
+            <h2>Book Your Escape</h2>
+            <p>
+              Choose your adventure, gather your team, and prepare to unlock the
+              impossible.
+            </p>
+
+            <form
+              class="contact-form"
+              id="bookingForm"
+              action=""
+              method="post"
+              style="
+                background-color: white;
+                padding: 2em;
+                border-radius: 0.5em;
+                margin-top: 2em;
+              "
+            >
+              <div
+                class="section-title"
+                style="text-align: left; margin-bottom: 1.5em"
+              >
+                <h3>Select Your Experience</h3>
+              </div>
+
+              <div class="rooms-grid" style="margin-bottom: 2em">
+                <!-- The Cure Room Card -->
+                <div class="room-card">
+                  <input
+                    type="radio"
+                    name="room"
+                    id="cure"
+                    value="cure"
+                    required
+                    style="float: right; margin: 1em"
+                  />
+                  <div
+                    class="room-image"
+                    style="background-image: url('../images/cure.jpg')"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="room-info">
+                    <label for="cure" class="room-name"
+                      ><h3>The Cure</h3></label
+                    >
+                    <p>
+                      An abandoned medical facility holds the cure to a deadly
+                      disease. Can you find it before time runs out?
+                    </p>
+                    <div class="room-meta">
+                      <span>Difficulty: ★★★☆☆</span>
+                      <span>60 Minutes</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Missing Magician Room Card -->
+                <div class="room-card">
+                  <input
+                    type="radio"
+                    name="room"
+                    id="magician"
+                    value="magician"
+                    style="float: right; margin: 1em"
+                  />
+                  <div
+                    class="room-image"
+                    style="background-image: url('../images/magician.jpg')"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="room-info">
+                    <label for="magician" class="room-name"
+                      ><h3>Missing Magician</h3></label
+                    >
+                    <p>
+                      The great illusionist has vanished during his most daring
+                      trick. Uncover the secrets of his disappearance.
+                    </p>
+                    <div class="room-meta">
+                      <span>Difficulty: ★★★★☆</span>
+                      <span>60 Minutes</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Hacker Room Card -->
+                <div class="room-card">
+                  <input
+                    type="radio"
+                    name="room"
+                    id="hacker"
+                    value="hacker"
+                    style="float: right; margin: 1em"
+                  />
+                  <div
+                    class="room-image"
+                    style="background-image: url('../images/hacker.jpg')"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="room-info">
+                    <label for="hacker" class="room-name"
+                      ><h3>Hacker</h3></label
+                    >
+                    <p>
+                      A cybersecurity breach threatens to expose sensitive
+                      information. Stop the hack before it's too late.
+                    </p>
+                    <div class="room-meta">
+                      <span>Difficulty: ★★★★★</span>
+                      <span>60 Minutes</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Additional Rooms Section -->
+              <div class="rooms-grid" style="margin-bottom: 2em">
+                <!-- The Basement Room Card -->
+                <div class="room-card">
+                  <input
+                    type="radio"
+                    name="room"
+                    id="basement"
+                    value="basement"
+                    style="float: right; margin: 1em"
+                  />
+                  <div
+                    class="room-image"
+                    style="background-image: url('../images/basement.jpg')"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="room-info">
+                    <label for="basement" class="room-name"
+                      ><h3>The Basement</h3></label
+                    >
+                    <p>
+                      Descend into darkness. Uncover the secrets. Escape the
+                      haunted basement before it's too late.
+                    </p>
+                    <div class="room-meta">
+                      <span>Difficulty: ★★★★☆</span>
+                      <span>60 Minutes</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- The Study Room Card -->
+                <div class="room-card">
+                  <input
+                    type="radio"
+                    name="room"
+                    id="study"
+                    value="study"
+                    style="float: right; margin: 1em"
+                  />
+                  <div
+                    class="room-image"
+                    style="background-image: url('../images/study.jpg')"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="room-info">
+                    <label for="study" class="room-name"
+                      ><h3>The Study</h3></label
+                    >
+                    <p>
+                      A professor's mysterious disappearance. Ancient secrets
+                      hidden in plain sight. Can you unravel the academic
+                      enigma?
+                    </p>
+                    <div class="room-meta">
+                      <span>Difficulty: ★★★★★</span>
+                      <span>60 Minutes</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Fenn's Gold Room Card -->
+                <div class="room-card">
+                  <input
+                    type="radio"
+                    name="room"
+                    id="fenns-gold"
+                    value="fenns-gold"
+                    style="float: right; margin: 1em"
+                  />
+                  <div
+                    class="room-image"
+                    style="background-image: url('../images/fenns-gold.jpg')"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="room-info">
+                    <label for="fenns-gold" class="room-name"
+                      ><h3>Fenn's Gold</h3></label
+                    >
+                    <p>
+                      A legendary treasure. A cryptic poem. An adventure that
+                      will test your wits and determination.
+                    </p>
+                    <div class="room-meta">
+                      <span>Difficulty: ★★★☆☆</span>
+                      <span>60 Minutes</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Last Room -->
+              <div class="rooms-grid" style="margin-bottom: 2em">
+                <!-- Reverse the Curse Room Card -->
+                <div class="room-card">
+                  <input
+                    type="radio"
+                    name="room"
+                    id="reverse-curse"
+                    value="reverse-curse"
+                    style="float: right; margin: 1em"
+                  />
+                  <div
+                    class="room-image"
+                    style="background-image: url('../images/reverse-curse.jpg')"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="room-info">
+                    <label for="reverse-curse" class="room-name"
+                      ><h3>Reverse the Curse</h3></label
+                    >
+                    <p>
+                      Ancient forces have been awakened. A terrible curse
+                      threatens to spread. Only you can unravel the supernatural
+                      mystery.
+                    </p>
+                    <div class="room-meta">
+                      <span>Difficulty: ★★★★☆</span>
+                      <span>60 Minutes</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="display: table; width: 100%; border-spacing: 1em">
+                <div style="display: table-cell; width: 50%">
+                  <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date" required />
+                  </div>
+                </div>
+                <div style="display: table-cell; width: 50%">
+                  <div class="form-group">
+                    <label for="time">Time</label>
+                    <select id="time" name="time" required>
+                      <option value="">Select a time</option>
+                      <option value="10:00">10:00 AM</option>
+                      <option value="11:30">11:30 AM</option>
+                      <option value="13:00">1:00 PM</option>
+                      <option value="14:30">2:30 PM</option>
+                      <option value="16:00">4:00 PM</option>
+                      <option value="17:30">5:30 PM</option>
+                      <option value="19:00">7:00 PM</option>
+                      <option value="20:30">8:30 PM</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="players">Number of Players</label>
+                <select id="players" name="players" required>
+                  <option value="">Select number of players</option>
+                  <option value="2">2 Players</option>
+                  <option value="3">3 Players</option>
+                  <option value="4">4 Players</option>
+                  <option value="5">5 Players</option>
+                  <option value="6">6 Players</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required />
+              </div>
+
+              <div class="form-group" style="margin-top: 1em">
+                <input
+                  type="checkbox"
+                  id="terms"
+                  name="terms"
+                  required
+                  style="
+                    width: auto;
+                    display: inline-block;
+                    margin-right: 0.5em;
+                  "
+                />
+                <label
+                  for="terms"
+                  style="display: inline-block; font-weight: normal"
+                  >I agree to the
+                  <a href="terms.html">terms and conditions</a></label
+                >
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary"
+                style="margin-top: 1.5em; width: 100%"
+              >
+                Complete Booking
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Confirmation Modal -->
+    <div class="booking-confirmation" id="bookingConfirmation">
+      <div class="confirmation-content">
+        <div class="icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h2>Booking Confirmed!</h2>
+        <p>
+          Thank you for booking your escape room adventure with Houdini's House!
+        </p>
+        <p>
+          A confirmation email with all the details has been sent to your email
+          address.
+        </p>
+        <p>
+          Please arrive 15 minutes before your scheduled time for a brief
+          introduction.
+        </p>
+        <button class="close-confirmation" id="closeConfirmation">
+          Continue
+        </button>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Booking FAQs</h2>
+          <p>Common questions about booking your escape room experience.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What happens after I book?</div>
+          <div class="faq-answer">
+            After completing your booking, you'll receive a confirmation email
+            with details of your reservation. Please arrive 15 minutes before
+            your scheduled time for a brief introduction.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What's your cancellation policy?</div>
+          <div class="faq-answer">
+            You can reschedule or cancel your booking up to 24 hours before your
+            scheduled time without any penalty. For cancellations with less than
+            24 hours notice, a 50% fee applies.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Do I need to book in advance?</div>
+          <div class="faq-answer">
+            We strongly recommend booking at least 48 hours in advance,
+            especially for weekend sessions. Walk-ins are accommodated based on
+            availability, but we cannot guarantee spaces without a reservation.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Group Bookings & Special Events</h2>
+        <p>
+          Planning a corporate event, birthday celebration, or team building
+          activity? Contact us for special group rates and customized
+          experiences!
+        </p>
+        <a href="contact.html" class="btn">Contact Us</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Houdini's House</h3>
+            <p>
+              Immersive escape room experiences inspired by the legendary Harry
+              Houdini. Test your wits, solve puzzles, and escape before time
+              runs out!
+            </p>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="booking.html">Book Now</a></li>
+              <li><a href="sitemap.html">Sitemap</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Our Rooms</h3>
+            <ul class="footer-links">
+              <li><a href="rooms/cure.html">The Cure</a></li>
+              <li><a href="rooms/magician.html">Missing Magician</a></li>
+              <li><a href="rooms/hacker.html">Hacker</a></li>
+              <li><a href="rooms/basement.html">The Basement</a></li>
+              <li><a href="rooms/study.html">The Study</a></li>
+              <li><a href="rooms/fenns-gold.html">Fenn's Gold</a></li>
+              <li><a href="rooms/reverse-curse.html">Reverse the Curse</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Contact Info</h3>
+            <p>123 Escape Street<br />Gold Coast, QLD 4217</p>
+            <p>
+              Phone: <a href="tel:0412345678">0412 345-678</a><br />Email:
+              <a href="mailto:info@houdinishouse.com">info@houdinishouse.com</a>
+            </p>
+            <p>Hours: Tue-Sun, 10AM-10PM</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 Houdini's House. All rights reserved. |
+            <a href="privacy.html">Privacy Policy</a> |
+            <a href="terms.html">Terms of Service</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      document
+        .querySelector(".mobile-toggle")
+        .addEventListener("click", function () {
+          document.querySelector(".nav-menu").classList.toggle("active");
+        });
+
+      // Booking form processing
+      document
+        .getElementById("bookingForm")
+        .addEventListener("submit", function (event) {
+          // Prevent default form submission
+          event.preventDefault();
+
+          // Show the confirmation modal
+          document.getElementById("bookingConfirmation").style.display = "flex";
+        });
+
+      // Close confirmation modal
+      document
+        .getElementById("closeConfirmation")
+        .addEventListener("click", function () {
+          // Hide the modal
+          document.getElementById("bookingConfirmation").style.display = "none";
+
+          // Reset the form
+          document.getElementById("bookingForm").reset();
+        });
+    </script>
+  </body>
+</html>

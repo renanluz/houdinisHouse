@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Contact Houdini's House Escape Rooms. Send us a message, find our phone number, email address and frequently asked questions."
+    />
+    <title>Contact Us | Houdini's House</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header with Navigation -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <a href="../index.html"><h1>Houdini's House</h1></a>
+          </div>
+          <div class="mobile-toggle" aria-label="Toggle mobile menu">☰</div>
+          <nav class="nav-menu" aria-label="Main navigation">
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="rooms/cure.html">The Cure</a></li>
+              <li><a href="rooms/magician.html">Missing Magician</a></li>
+              <li><a href="rooms/hacker.html">Hacker</a></li>
+              <li class="has-dropdown">
+                <a href="#">Additional Rooms</a>
+                <ul class="dropdown">
+                  <li><a href="rooms/basement.html">The Basement</a></li>
+                  <li><a href="rooms/study.html">The Study</a></li>
+                  <li><a href="rooms/fenns-gold.html">Fenn's Gold</a></li>
+                  <li>
+                    <a href="rooms/reverse-curse.html">Reverse the Curse</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="has-dropdown">
+                <a href="#">Information</a>
+                <ul class="dropdown">
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="find-us.html">Find Us</a></li>
+                  <li>
+                    <a href="gift-certificates.html">Gift Certificates</a>
+                  </li>
+                  <li><a href="experiences.html">Experiences</a></li>
+                  <li><a href="merchandise.html">Merchandise</a></li>
+                </ul>
+              </li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- Contact Hero Section -->
+    <section class="room-hero contact-hero" aria-label="Contact us hero banner">
+      <div class="container">
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you! Get in touch with our team.</p>
+      </div>
+    </section>
+
+    <!-- Contact Content Section -->
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-content">
+          <div class="contact-form-container">
+            <h2>Send Us a Message</h2>
+            <form
+              class="contact-form"
+              id="contactForm"
+              action="#"
+              aria-label="Contact form"
+            >
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  aria-required="true"
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  aria-required="true"
+                />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" />
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject">
+                  <option value="general">General Inquiry</option>
+                  <option value="booking">Booking Question</option>
+                  <option value="corporate">Corporate Events</option>
+                  <option value="feedback">Feedback</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                  aria-required="true"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Send Message
+              </button>
+            </form>
+          </div>
+
+          <div class="contact-info-container">
+            <div class="contact-info">
+              <h2>Contact Information</h2>
+              <div class="info-item">
+                <h3>Address</h3>
+                <p>123 Escape Street<br />Gold Coast, QLD 4217</p>
+              </div>
+              <div class="info-item">
+                <h3>Phone</h3>
+                <p>0412 345-678</p>
+              </div>
+              <div class="info-item">
+                <h3>Email</h3>
+                <p>info@houdinishouse.com</p>
+              </div>
+              <div class="info-item">
+                <h3>Opening Hours</h3>
+                <p>Tuesday - Sunday: 10AM - 10PM<br />Monday: Closed</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section light-bg">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact FAQs</h2>
+          <p>Got questions? We've got answers.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How quickly will I receive a response?</div>
+          <div class="faq-answer">
+            We aim to respond to all inquiries within 24 hours during business
+            days.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Do I need to make a reservation?</div>
+          <div class="faq-answer">
+            Yes, we recommend booking at least 48 hours in advance to secure
+            your preferred time slot.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Can I modify or cancel my booking?</div>
+          <div class="faq-answer">
+            Yes, bookings can be modified or canceled up to 24 hours before your
+            scheduled time without penalty.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3 style="color: var(--accent-color)">Houdini's House</h3>
+            <p>
+              Immersive escape room experiences inspired by the legendary Harry
+              Houdini. Test your wits, solve puzzles, and escape before time
+              runs out!
+            </p>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h3 style="color: var(--accent-color)">Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="find-us.html">Find Us</a></li>
+              <li><a href="gift-certificates.html">Gift Certificates</a></li>
+              <li><a href="experiences.html">Experiences</a></li>
+              <li><a href="merchandise.html">Merchandise</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="sitemap.html">Sitemap</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3 style="color: var(--accent-color)">Our Rooms</h3>
+            <ul class="footer-links">
+              <li><a href="rooms/cure.html">The Cure</a></li>
+              <li><a href="rooms/magician.html">Missing Magician</a></li>
+              <li><a href="rooms/hacker.html">Hacker</a></li>
+              <li><a href="rooms/basement.html">The Basement</a></li>
+              <li><a href="rooms/study.html">The Study</a></li>
+              <li><a href="rooms/fenns-gold.html">Fenn's Gold</a></li>
+              <li><a href="rooms/reverse-curse.html">Reverse the Curse</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3 style="color: var(--accent-color)">Contact Info</h3>
+            <p>123 Escape Street<br />Gold Coast, QLD 4217</p>
+            <p>Phone: 0412 345‑678<br />Email: info@houdinishouse.com</p>
+            <p>Hours: Tue–Sun, 10AM–10PM</p>
+          </div>
+        </div>
+
+        <div
+          class="footer-bottom"
+          style="text-align: center; color: #aaa; font-size: 0.9rem"
+        >
+          <p>
+            © 2025 Houdini's House. All rights reserved. |
+            <a href="privacy.html" style="color: var(--accent-color)"
+              >Privacy Policy</a
+            >
+            |
+            <a href="terms.html" style="color: var(--accent-color)"
+              >Terms of Service</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      document
+        .querySelector(".mobile-toggle")
+        .addEventListener("click", function () {
+          document.querySelector(".nav-menu").classList.toggle("active");
+        });
+
+      // Script para processar o envio do formulário
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (event) {
+          // Previne o comportamento padrão do formulário (navegação para outra página)
+          event.preventDefault();
+
+          // Exibe um alerta de agradecimento
+          alert("Thank you for your message! We will get back to you soon.");
+
+          // Limpa o formulário após o envio
+          this.reset();
+        });
+    </script>
+  </body>
+</html>

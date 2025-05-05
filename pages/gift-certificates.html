@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gift Certificates - Houdini's House Escape Rooms</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Additional styles for the gift certificates page */
+      .gift-hero {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.7)
+          ),
+          url("../images/gift-certificate-bg.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 5em 0;
+        text-align: center;
+      }
+
+      .gift-hero h1 {
+        font-size: 3em;
+        margin-bottom: 0.5em;
+      }
+
+      .gift-hero p {
+        font-size: 1.2em;
+        max-width: 800px;
+        margin: 0 auto 2em;
+      }
+
+      .gift-options {
+        padding: 4em 0;
+        background-color: #f9f9f9;
+      }
+
+      .gift-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2em;
+        margin-top: 3em;
+      }
+
+      .gift-card {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .gift-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .gift-card-image {
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .gift-card-content {
+        padding: 2em;
+      }
+
+      .gift-card h3 {
+        font-size: 1.5em;
+        margin-bottom: 0.5em;
+        color: var(--primary-color);
+      }
+
+      .gift-card p {
+        margin-bottom: 1.5em;
+        line-height: 1.6;
+      }
+
+      .gift-card .price {
+        font-size: 1.3em;
+        font-weight: bold;
+        color: var(--accent-color);
+        margin-bottom: 1em;
+      }
+
+      .how-it-works {
+        padding: 4em 0;
+      }
+
+      .steps {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 3em;
+      }
+
+      .step {
+        flex: 1;
+        min-width: 250px;
+        text-align: center;
+        padding: 1em;
+        margin-bottom: 2em;
+      }
+
+      .step-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        background-color: var(--accent-color);
+        color: white;
+        font-size: 1.5em;
+        font-weight: bold;
+        border-radius: 50%;
+        margin: 0 auto 1em;
+      }
+
+      .step h3 {
+        margin-bottom: 1em;
+        color: var(--primary-color);
+      }
+
+      .faq-section {
+        background-color: #f9f9f9;
+        padding: 4em 0;
+      }
+
+      .faq-item {
+        background-color: white;
+        margin-bottom: 1em;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .faq-question {
+        padding: 1.5em;
+        font-weight: bold;
+        cursor: pointer;
+        position: relative;
+        color: var(--primary-color);
+      }
+
+      .faq-question::after {
+        content: "+";
+        position: absolute;
+        right: 1.5em;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5em;
+      }
+
+      .faq-answer {
+        padding: 0 1.5em 1.5em;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 768px) {
+        .gift-hero h1 {
+          font-size: 2.5em;
+        }
+
+        .steps {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header with Navigation -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <a href="../index.html"><h1>Houdini's House</h1></a>
+          </div>
+          <div class="mobile-toggle">☰</div>
+          <nav class="nav-menu">
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="rooms/cure.html">The Cure</a></li>
+              <li><a href="rooms/magician.html">Missing Magician</a></li>
+              <li><a href="rooms/hacker.html">Hacker</a></li>
+              <li class="has-dropdown">
+                <a href="#">Additional Rooms</a>
+                <ul class="dropdown">
+                  <li><a href="rooms/basement.html">The Basement</a></li>
+                  <li><a href="rooms/study.html">The Study</a></li>
+                  <li><a href="rooms/fenns-gold.html">Fenn’s Gold</a></li>
+                  <li>
+                    <a href="rooms/reverse-curse.html">Reverse the Curse</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="has-dropdown">
+                <a href="#">Information</a>
+                <ul class="dropdown">
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="find-us.html">Find Us</a></li>
+                  <li>
+                    <a href="gift-certificates.html">Gift Certificates</a>
+                  </li>
+                  <li><a href="experiences.html">Experiences</a></li>
+                  <li><a href="merchandise.html">Merchandise</a></li>
+                </ul>
+              </li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Gift Hero Section -->
+    <section class="gift-hero">
+      <div class="container">
+        <h1>Gift Certificates</h1>
+        <p>
+          Give the gift of adventure, mystery, and unforgettable memories. Our
+          gift certificates are perfect for birthdays, holidays, or any special
+          occasion.
+        </p>
+        <a href="#options" class="btn btn-primary">View Options</a>
+      </div>
+    </section>
+
+    <!-- Gift Options Section -->
+    <section id="options" class="gift-options">
+      <div class="container">
+        <div class="section-title">
+          <h2>Choose Your Gift</h2>
+          <p>
+            Select the perfect escape room experience for your friends and
+            family
+          </p>
+        </div>
+
+        <div class="gift-cards">
+          <div class="gift-card">
+            <div
+              class="gift-card-image"
+              style="background-image: url('../images/gift-single.jpg')"
+            ></div>
+            <div class="gift-card-content">
+              <h3>Single Room Experience</h3>
+              <p>
+                Gift a single escape room adventure of the recipient's choice.
+                Perfect for individuals or small groups looking to test their
+                puzzle-solving skills.
+              </p>
+              <div class="price">$35 per person</div>
+              <a href="#" class="btn">Purchase Now</a>
+            </div>
+          </div>
+
+          <div class="gift-card">
+            <div
+              class="gift-card-image"
+              style="background-image: url('../images/gift-double.jpg')"
+            ></div>
+            <div class="gift-card-content">
+              <h3>Double Room Package</h3>
+              <p>
+                The ultimate gift for escape room enthusiasts. This certificate
+                includes two different room experiences on the same day with a
+                special discount.
+              </p>
+              <div class="price">$60 per person</div>
+              <a href="#" class="btn">Purchase Now</a>
+            </div>
+          </div>
+
+          <div class="gift-card">
+            <div
+              class="gift-card-image"
+              style="background-image: url('../images/gift-group.jpg')"
+            ></div>
+            <div class="gift-card-content">
+              <h3>Group Adventure</h3>
+              <p>
+                Perfect for team building or family outings. Book an entire room
+                for up to 6 people with this group certificate.
+              </p>
+              <div class="price">$180 per room</div>
+              <a href="#" class="btn">Purchase Now</a>
+            </div>
+          </div>
+
+          <div class="gift-card">
+            <div
+              class="gift-card-image"
+              style="background-image: url('../images/gift-custom.jpg')"
+            ></div>
+            <div class="gift-card-content">
+              <h3>Custom Amount</h3>
+              <p>
+                Can't decide? Give a gift certificate for any amount and let the
+                recipient choose their own adventure.
+              </p>
+              <div class="price">You decide</div>
+              <a href="#" class="btn">Purchase Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+      <div class="container">
+        <div class="section-title">
+          <h2>How It Works</h2>
+          <p>Giving the gift of escape is easy</p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Choose Your Gift</h3>
+            <p>
+              Select from our range of gift certificate options or choose a
+              custom amount.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Personalize</h3>
+            <p>
+              Add a personal message and choose digital delivery or a physical
+              gift card.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Give the Gift</h3>
+            <p>
+              Digital certificates are emailed immediately. Physical cards can
+              be picked up or mailed.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">4</div>
+            <h3>Book & Enjoy</h3>
+            <p>
+              Recipients can book online or by phone using their unique
+              certificate code.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Frequently Asked Questions</h2>
+          <p>Everything you need to know about our gift certificates</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">How long are gift certificates valid?</div>
+          <div class="faq-answer">
+            Our gift certificates are valid for 12 months from the date of
+            purchase, giving recipients plenty of time to plan their escape room
+            adventure.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Can I get a physical gift card?</div>
+          <div class="faq-answer">
+            Yes! You can choose between a digital certificate delivered via
+            email or a physical gift card. Physical cards can be picked up at
+            our location or mailed for an additional $5 shipping fee.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">How do recipients redeem their gift?</div>
+          <div class="faq-answer">
+            Each gift certificate includes a unique code. Recipients can use
+            this code when booking online through our website or mention it when
+            calling to make a reservation.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Can gift certificates be used for any room?
+          </div>
+          <div class="faq-answer">
+            Yes! Our gift certificates can be used for any of our escape rooms,
+            subject to availability. Recipients can choose whichever room
+            interests them most.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            What if the gift amount doesn't cover the full cost?
+          </div>
+          <div class="faq-answer">
+            If a gift certificate doesn't cover the full cost of the chosen
+            experience, recipients can pay the difference at the time of
+            booking. Similarly, if there's remaining value after booking, it can
+            be used for future visits or merchandise.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-title">
+          <h2>What Gift Recipients Say</h2>
+          <p>Hear from those who've received our gift certificates</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              "I received a Houdini's House gift certificate for my birthday and
+              it was the best present ever! My friends and I had an amazing time
+              in The Cure room. Such a unique and memorable gift!"
+            </div>
+            <div class="testimonial-author">- Sarah M.</div>
+            <div class="testimonial-rating">★★★★★</div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              "My wife got me a gift certificate for our anniversary. We did the
+              Double Room Package and made a whole day of it. The staff were so
+              accommodating and it was such a fun way to celebrate!"
+            </div>
+            <div class="testimonial-author">- Michael T.</div>
+            <div class="testimonial-rating">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to Give the Perfect Gift?</h2>
+        <p>Purchase a gift certificate today and give the gift of adventure!</p>
+        <a href="#options" class="btn">View Gift Options</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <!-- Column 1: Brand & Social -->
+          <div class="footer-column">
+            <h3 style="color: var(--accent-color)">Houdini's House</h3>
+            <p>
+              Immersive escape room experiences inspired by the legendary Harry
+              Houdini. Test your wits, solve puzzles, and escape before time
+              runs out!
+            </p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div class="footer-column">
+            <h3 style="color: var(--accent-color)">Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="../../index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="find-us.html">Find Us</a></li>
+              <li><a href="gift-certificates.html">Gift Certificates</a></li>
+              <li><a href="experiences.html">Experiences</a></li>
+              <li><a href="merchandise.html">Merchandise</a></li>
+              <li><a href="../contact.html">Contact Us</a></li>
+              <li><a href="../sitemap.html">Sitemap</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Our Rooms -->
+          <div class="footer-column">
+            <h3 style="color: var(--accent-color)">Our Rooms</h3>
+            <ul class="footer-links">
+              <li><a href="../rooms/cure.html">The Cure</a></li>
+              <li><a href="../rooms/magician.html">Missing Magician</a></li>
+              <li><a href="../rooms/hacker.html">Hacker</a></li>
+              <li><a href="../rooms/basement.html">The Basement</a></li>
+              <li><a href="../rooms/study.html">The Study</a></li>
+              <li><a href="../rooms/fenns-gold.html">Fenn's Gold</a></li>
+              <li>
+                <a href="../rooms/reverse-curse.html">Reverse the Curse</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Contact Info -->
+          <div class="footer-column">
+            <h3 style="color: var(--accent-color)">Contact Info</h3>
+            <p>123 Escape Street<br />Gold Coast, QLD 4217</p>
+            <p>Phone: 0412 345‑678<br />Email: info@houdinishouse.com</p>
+            <p>Hours: Tue–Sun, 10AM–10PM</p>
+          </div>
+        </div>
+
+        <hr style="border-color: #444; margin: 2em 0" />
+
+        <!-- Bottom line -->
+        <div
+          class="footer-bottom"
+          style="text-align: center; color: #aaa; font-size: 0.9rem"
+        >
+          <p>
+            © 2025 Houdini's House. All rights reserved. |
+            <a href="privacy.html" style="color: var(--accent-color)"
+              >Privacy Policy</a
+            >
+            |
+            <a href="terms.html" style="color: var(--accent-color)"
+              >Terms of Service</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Simple JavaScript for mobile menu toggle
+      document
+        .querySelector(".mobile-toggle")
+        .addEventListener("click", function () {
+          document.querySelector(".nav-menu").classList.toggle("active");
+        });
+    </script>
+  </body>
+</html>

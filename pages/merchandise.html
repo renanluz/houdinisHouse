@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merchandise - Houdini's House Escape Rooms</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Additional styles for the merchandise page */
+      .merch-hero {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.7)
+          ),
+          url("../images/default.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 5em 0;
+        text-align: center;
+      }
+
+      .merch-hero h1 {
+        font-size: 3em;
+        margin-bottom: 0.5em;
+      }
+
+      .merch-hero p {
+        font-size: 1.2em;
+        max-width: 800px;
+        margin: 0 auto 2em;
+      }
+
+      .product-section {
+        padding: 4em 0;
+        background-color: #f9f9f9;
+      }
+
+      .product-filter {
+        display: table;
+        width: 100%;
+        margin: 2em 0;
+        background-color: white;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .filter-row {
+        display: table-row;
+      }
+
+      .filter-cell {
+        display: table-cell;
+        padding: 1em;
+        text-align: center;
+        border-right: 1px solid #eee;
+      }
+
+      .filter-cell:last-child {
+        border-right: none;
+      }
+
+      .filter-cell a {
+        text-decoration: none;
+        color: var(--primary-color);
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      .filter-cell a:hover,
+      .filter-cell a.active {
+        color: var(--accent-color);
+      }
+
+      .products-table {
+        display: table;
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 2em 0;
+      }
+
+      .products-row {
+        display: table-row;
+      }
+
+      .product-card {
+        display: table-cell;
+        width: 25%;
+        vertical-align: top;
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 2em;
+      }
+
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .product-image {
+        height: 250px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+
+      .product-badge {
+        position: absolute;
+        top: 1em;
+        right: 1em;
+        background-color: var(--accent-color);
+        color: white;
+        padding: 0.5em 1em;
+        border-radius: 20px;
+        font-size: 0.8em;
+        font-weight: bold;
+      }
+
+      .product-content {
+        padding: 1.5em;
+      }
+
+      .product-content h3 {
+        font-size: 1.2em;
+        margin-bottom: 0.5em;
+        color: var(--primary-color);
+      }
+
+      .product-content .price {
+        font-size: 1.3em;
+        font-weight: bold;
+        color: var(--accent-color);
+        margin: 0.5em 0 1em;
+      }
+
+      .product-content .ratings {
+        color: gold;
+        margin-bottom: 1em;
+      }
+
+      .quantity-selector {
+        display: table;
+        width: 100%;
+        margin: 1em 0;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      .quantity-row {
+        display: table-row;
+      }
+
+      .quantity-btn {
+        display: table-cell;
+        width: 30%;
+        background-color: #f5f5f5;
+        text-align: center;
+        padding: 0.5em;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .quantity-value {
+        display: table-cell;
+        width: 40%;
+        text-align: center;
+        padding: 0.5em;
+      }
+
+      .bestsellers {
+        padding: 4em 0;
+        background-color: white;
+      }
+
+      .testimonial-section {
+        padding: 4em 0;
+        background-color: #f9f9f9;
+      }
+
+      @media (max-width: 768px) {
+        .merch-hero h1 {
+          font-size: 2.5em;
+        }
+
+        .filter-row,
+        .filter-cell,
+        .products-table,
+        .products-row,
+        .product-card {
+          display: block;
+          width: 100%;
+        }
+
+        .filter-cell {
+          border-right: none;
+          border-bottom: 1px solid #eee;
+        }
+
+        .filter-cell:last-child {
+          border-bottom: none;
+        }
+
+        .product-card {
+          margin-bottom: 2em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <a href="../index.html"><h1>Houdini's House</h1></a>
+          </div>
+          <div class="mobile-toggle">☰</div>
+          <nav class="nav-menu">
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="rooms/cure.html">The Cure</a></li>
+              <li><a href="rooms/magician.html">Missing Magician</a></li>
+              <li><a href="rooms/hacker.html">Hacker</a></li>
+              <li class="has-dropdown">
+                <a href="#">Additional Rooms</a>
+                <ul class="dropdown">
+                  <li><a href="rooms/basement.html">The Basement</a></li>
+                  <li><a href="rooms/study.html">The Study</a></li>
+                  <li><a href="rooms/fenns-gold.html">Fenn’s Gold</a></li>
+                  <li>
+                    <a href="rooms/reverse-curse.html">Reverse the Curse</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="has-dropdown">
+                <a href="#">Information</a>
+                <ul class="dropdown">
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="find-us.html">Find Us</a></li>
+                  <li>
+                    <a href="gift-certificates.html">Gift Certificates</a>
+                  </li>
+                  <li><a href="experiences.html">Experiences</a></li>
+                  <li><a href="merchandise.html">Merchandise</a></li>
+                </ul>
+              </li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Merchandise Hero Section -->
+    <section class="merch-hero">
+      <div class="container">
+        <h1>Houdini's House Merchandise</h1>
+        <p>
+          Take home a piece of the mystery! Our merchandise collection features
+          unique puzzle games, apparel, and collectibles inspired by our escape
+          rooms.
+        </p>
+        <a href="#product-options" class="btn btn-primary">Shop Now</a>
+      </div>
+    </section>
+
+    <!-- Product Filter Section -->
+    <section id="product-options" class="product-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Shop Our Collection</h2>
+          <p>Unique items inspired by our escape rooms</p>
+        </div>
+
+        <!-- Products Row 1 -->
+        <div class="products-table">
+          <div class="products-row">
+            <div class="product-card">
+              <div
+                class="product-image"
+                style="background-image: url('../images/tshirt-magician.jpg')"
+              >
+                <div class="product-badge">Bestseller</div>
+              </div>
+              <div class="product-content">
+                <h3>Missing Magician T-Shirt</h3>
+                <div class="ratings">★★★★★ (24)</div>
+                <p>
+                  Cotton t-shirt featuring artwork inspired by our popular
+                  Missing Magician room.
+                </p>
+                <div class="price">$24.95</div>
+                <div class="quantity-selector">
+                  <div class="quantity-row">
+                    <div class="quantity-btn">-</div>
+                    <div class="quantity-value">1</div>
+                    <div class="quantity-btn">+</div>
+                  </div>
+                </div>
+                <a href="#" class="btn">Add to Cart</a>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div
+                class="product-image"
+                style="background-image: url('../images/mini-puzzle-box.jpg')"
+              ></div>
+              <div class="product-content">
+                <h3>Mini Puzzle Box</h3>
+                <div class="ratings">★★★★☆ (18)</div>
+                <p>
+                  A miniature version of the puzzle box from our Fenn's Gold
+                  room. Can you solve it?
+                </p>
+                <div class="price">$29.95</div>
+                <div class="quantity-selector">
+                  <div class="quantity-row">
+                    <div class="quantity-btn">-</div>
+                    <div class="quantity-value">1</div>
+                    <div class="quantity-btn">+</div>
+                  </div>
+                </div>
+                <a href="#" class="btn">Add to Cart</a>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div
+                class="product-image"
+                style="background-image: url('../images/escape-mug.jpg')"
+              >
+                <div class="product-badge">New</div>
+              </div>
+              <div class="product-content">
+                <h3>Color-Changing Escape Mug</h3>
+                <div class="ratings">★★★★★ (12)</div>
+                <p>
+                  This mug reveals hidden clues when filled with hot liquid.
+                  Perfect for escape room enthusiasts!
+                </p>
+                <div class="price">$19.95</div>
+                <div class="quantity-selector">
+                  <div class="quantity-row">
+                    <div class="quantity-btn">-</div>
+                    <div class="quantity-value">1</div>
+                    <div class="quantity-btn">+</div>
+                  </div>
+                </div>
+                <a href="#" class="btn">Add to Cart</a>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div
+                class="product-image"
+                style="background-image: url('../images/keychain-set.jpg')"
+              ></div>
+              <div class="product-content">
+                <h3>Room Key Collection</h3>
+                <div class="ratings">★★★★☆ (9)</div>
+                <p>
+                  Set of 7 keychains featuring miniature replicas of keys from
+                  each of our escape rooms.
+                </p>
+                <div class="price">$34.95</div>
+                <div class="quantity-selector">
+                  <div class="quantity-row">
+                    <div class="quantity-btn">-</div>
+                    <div class="quantity-value">1</div>
+                    <div class="quantity-btn">+</div>
+                  </div>
+                </div>
+                <a href="#" class="btn">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Products Row 2 -->
+        <div class="products-table" style="margin-top: 2em">
+          <div class="products-row">
+            <div class="product-card">
+              <div
+                class="product-image"
+                style="background-image: url('../images/puzzle-book.jpg')"
+              ></div>
+              <div class="product-content">
+                <h3>Houdini's Puzzle Book</h3>
+                <div class="ratings">★★★★★ (31)</div>
+                <p>
+                  Collection of 50+ mind-bending puzzles inspired by our escape
+                  rooms. Includes solutions.
+                </p>
+                <div class="price">$22.95</div>
+                <div class="quantity-selector">
+                  <div class="quantity-row">
+                    <div class="quantity-btn">-</div>
+                    <div class="quantity-value">1</div>
+                    <div class="quantity-btn">+</div>
+                  </div>
+                </div>
+                <a href="#" class="btn">Add to Cart</a>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div
+                class="product-image"
+                style="background-image: url('../images/hoodie-logo.jpg')"
+              >
+                <div class="product-badge">Sale</div>
+              </div>
+              <div class="product-content">
+                <h3>Houdini's House Hoodie</h3>
+                <div class="ratings">★★★★☆ (14)</div>
+                <p>
+                  Cozy black hoodie with our signature escape key logo. Perfect
+                  for colder weather.
+                </p>
+                <div class="price">
+                  <span
+                    style="
+                      text-decoration: line-through;
+                      color: #999;
+                      font-size: 0.8em;
+                    "
+                    >$49.95</span
+                  >
+                  $39.95
+                </div>
+                <div class="quantity-selector">
+                  <div class="quantity-row">
+                    <div class="quantity-btn">-</div>
+                    <div class="quantity-value">1</div>
+                    <div class="quantity-btn">+</div>
+                  </div>
+                </div>
+                <a href="#" class="btn">Add to Cart</a>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div
+                class="product-image"
+                style="background-image: url('../images/card-game.jpg')"
+              ></div>
+              <div class="product-content">
+                <h3>Escape: The Card Game</h3>
+                <div class="ratings">★★★★★ (27)</div>
+                <p>
+                  Our exclusive card game that brings the escape room experience
+                  to your home. 2-6 players.
+                </p>
+                <div class="price">$24.95</div>
+                <div class="quantity-selector">
+                  <div class="quantity-row">
+                    <div class="quantity-btn">-</div>
+                    <div class="quantity-value">1</div>
+                    <div class="quantity-btn">+</div>
+                  </div>
+                </div>
+                <a href="#" class="btn">Add to Cart</a>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div
+                class="product-image"
+                style="background-image: url('../images/poster-set.jpg')"
+              >
+                <div class="product-badge">Limited</div>
+              </div>
+              <div class="product-content">
+                <h3>Room Poster Collection</h3>
+                <div class="ratings">★★★★★ (8)</div>
+                <p>
+                  Set of 7 art prints featuring stylized illustrations of each
+                  of our escape rooms.
+                </p>
+                <div class="price">$59.95</div>
+                <div class="quantity-selector">
+                  <div class="quantity-row">
+                    <div class="quantity-btn">-</div>
+                    <div class="quantity-value">1</div>
+                    <div class="quantity-btn">+</div>
+                  </div>
+                </div>
+                <a href="#" class="btn">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bestsellers Section -->
+    <section class="bestsellers">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Bestsellers</h2>
+          <p>Most popular items among escape room enthusiasts</p>
+        </div>
+
+        <div class="products-table">
+          <div class="products-row">
+            <div class="product-card">
+              <div
+                class="product-image"
+                style="background-image: url('../images/escape-journal.jpg')"
+              >
+                <div class="product-badge">Top Rated</div>
+              </div>
+              <div class="product-content">
+                <h3>Escape Journal</h3>
+                <div class="ratings">★★★★★ (42)</div>
+                <p>
+                  Record your escape room adventures with this specially
+                  designed journal. Includes sections for notes, time, team
+                  members, and more.
+                </p>
+                <div class="price">$18.95</div>
+                <div class="quantity-selector">
+                  <div class="quantity-row">
+                    <div class="quantity-btn">-</div>
+                    <div class="quantity-value">1</div>
+                    <div class="quantity-btn">+</div>
+                  </div>
+                </div>
+                <a href="#" class="btn">Add to Cart</a>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div
+                class="product-image"
+                style="background-image: url('../images/mystery-box.jpg')"
+              ></div>
+              <div class="product-content">
+                <h3>Monthly Mystery Box</h3>
+                <div class="ratings">★★★★★ (36)</div>
+                <p>
+                  Subscribe to receive a monthly box of puzzles, challenges, and
+                  collectibles. Each box follows a continuing story.
+                </p>
+                <div class="price">$39.95/month</div>
+                <a href="contact.html" class="btn">Contact Us</a>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div
+                class="product-image"
+                style="background-image: url('../images/decoder-ring.jpg')"
+              ></div>
+              <div class="product-content">
+                <h3>Secret Decoder Ring</h3>
+                <div class="ratings">★★★★★ (51)</div>
+                <p>
+                  This functional decoder ring works with special messages
+                  hidden throughout our website and rooms.
+                </p>
+                <div class="price">$14.95</div>
+                <div class="quantity-selector">
+                  <div class="quantity-row">
+                    <div class="quantity-btn">-</div>
+                    <div class="quantity-value">1</div>
+                    <div class="quantity-btn">+</div>
+                  </div>
+                </div>
+                <a href="#" class="btn">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Customer Reviews</h2>
+          <p>What our customers say about our merchandise</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              "The Mini Puzzle Box is fantastic! It's well-made and provides a
+              nice challenge without being too frustrating. I solved it after a
+              couple of hours, and it now sits proudly on my desk as a
+              conversation starter."
+            </div>
+            <div class="testimonial-author">- Alex P.</div>
+            <div class="testimonial-rating">★★★★★</div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              "I love my Houdini's House hoodie! The quality is excellent, and
+              it's super comfortable. I wear it all the time and always get
+              compliments on the design. Makes me feel like I'm part of an
+              exclusive escape room club!"
+            </div>
+            <div class="testimonial-author">- Michelle K.</div>
+            <div class="testimonial-rating">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shipping Info Section -->
+    <section class="info-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Shipping & Returns</h2>
+          <p>Information about our shipping and return policies</p>
+        </div>
+
+        <div class="info-content">
+          <div class="faq-item">
+            <div class="faq-question">Shipping Policy</div>
+            <div class="faq-answer">
+              <p>
+                We ship to most countries worldwide. Standard shipping within
+                Australia takes 3-5 business days. International shipping
+                typically takes 7-14 business days.
+              </p>
+              <p>
+                Free shipping on all orders over $50 within Australia.
+                International shipping rates are calculated at checkout based on
+                location and package weight.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">Return Policy</div>
+            <div class="faq-answer">
+              <p>
+                We accept returns within 30 days of purchase for items in
+                original, unused condition with tags attached. Return shipping
+                costs are the responsibility of the customer unless the item was
+                defective or shipped incorrectly.
+              </p>
+              <p>
+                To initiate a return, please contact our customer service team
+                with your order number and reason for return.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Continue the Adventure at Home</h2>
+        <p>Shop our exclusive collection of escape room merchandise!</p>
+        <a href="#product-options" class="btn">Shop Now</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <!-- Column 1: Brand & Social -->
+          <div class="footer-column">
+            <h3 style="color: var(--accent-color)">Houdini's House</h3>
+            <p>
+              Immersive escape room experiences inspired by the legendary Harry
+              Houdini. Test your wits, solve puzzles, and escape before time
+              runs out!
+            </p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div class="footer-column">
+            <h3 style="color: var(--accent-color)">Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="../../index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="find-us.html">Find Us</a></li>
+              <li><a href="gift-certificates.html">Gift Certificates</a></li>
+              <li><a href="experiences.html">Experiences</a></li>
+              <li><a href="merchandise.html">Merchandise</a></li>
+              <li><a href="../contact.html">Contact Us</a></li>
+              <li><a href="../sitemap.html">Sitemap</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Our Rooms -->
+          <div class="footer-column">
+            <h3 style="color: var(--accent-color)">Our Rooms</h3>
+            <ul class="footer-links">
+              <li><a href="../rooms/cure.html">The Cure</a></li>
+              <li><a href="../rooms/magician.html">Missing Magician</a></li>
+              <li><a href="../rooms/hacker.html">Hacker</a></li>
+              <li><a href="../rooms/basement.html">The Basement</a></li>
+              <li><a href="../rooms/study.html">The Study</a></li>
+              <li><a href="../rooms/fenns-gold.html">Fenn's Gold</a></li>
+              <li>
+                <a href="../rooms/reverse-curse.html">Reverse the Curse</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Contact Info -->
+          <div class="footer-column">
+            <h3 style="color: var(--accent-color)">Contact Info</h3>
+            <p>123 Escape Street<br />Gold Coast, QLD 4217</p>
+            <p>Phone: 0412 345‑678<br />Email: info@houdinishouse.com</p>
+            <p>Hours: Tue–Sun, 10AM–10PM</p>
+          </div>
+        </div>
+
+        <!-- Bottom line -->
+        <div
+          class="footer-bottom"
+          style="text-align: center; color: #aaa; font-size: 0.9rem"
+        >
+          <p>
+            © 2025 Houdini's House. All rights reserved. |
+            <a href="privacy.html" style="color: var(--accent-color)"
+              >Privacy Policy</a
+            >
+            |
+            <a href="terms.html" style="color: var(--accent-color)"
+              >Terms of Service</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Simple JavaScript for mobile menu toggle
+      document
+        .querySelector(".mobile-toggle")
+        .addEventListener("click", function () {
+          document.querySelector(".nav-menu").classList.toggle("active");
+        });
+
+      // Quantity selector functionality
+      document.querySelectorAll(".quantity-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const valueElement = this.parentNode.querySelector(".quantity-value");
+          let value = parseInt(valueElement.textContent);
+
+          if (this.textContent === "+" && value < 10) {
+            valueElement.textContent = value + 1;
+          } else if (this.textContent === "-" && value > 1) {
+            valueElement.textContent = value - 1;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
